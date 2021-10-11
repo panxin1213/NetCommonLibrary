@@ -1,0 +1,13 @@
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\obj\Debug\ResolveAssemblyReference.cache
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Firm.Admin.Core.dll
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Firm.Admin.Core.pdb
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Common.Library.dll
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Firm.Model.dll
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Dapper.Contrib.dll
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Dapper.dll
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Common.Library.pdb
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Firm.Model.pdb
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Dapper.Contrib.pdb
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\bin\Debug\Dapper.pdb
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\obj\Debug\Firm.Admin.Core.dll
+E:\WorkSource\Topic\2013广州展\Web\Firm.Admin.Core\obj\Debug\Firm.Admin.Core.pdb

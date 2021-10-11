@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3244527-1FEA-438C-8528-A1E45D151A7C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common.Library</RootNamespace>
+    <AssemblyName>Common.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\packages\Aspose Total for .NET DLL 2015-02\Aspose Total for .NET DLL 2015-02\net3.5_clientprofile_authenticodesigned\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Interop.Excel">
+      <HintPath>..\packages\Office\Interop.Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Interop.Word">
+      <HintPath>..\packages\Office\Interop.Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\Ionic.Zip\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\BaseCacheManager.cs" />
+    <Compile Include="Caching\CacheKey.cs" />
+    <Compile Include="Caching\CacheManager.cs" />
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\MemoryCacheManager.cs" />
+    <Compile Include="Conn.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Dapper\PagerActionDapper.cs" />
+    <Compile Include="Dapper\SqlMapperSmanExtensions.cs" />
+    <Compile Include="Firm.Core.Common.BLL\BaseService.cs" />
+    <Compile Include="Firm.Core.Common.BLL\ServiceHttpContext.cs" />
+    <Compile Include="Firm.Core.Common.BLL\ServiceHttpModule.cs" />
+    <Compile Include="Firm.Core.Common.BLL\ServiceMain.cs" />
+    <Compile Include="HttpModules\PageExecutionTimeAll.cs" />
+    <Compile Include="Kits\BaiduXML.cs" />
+    <Compile Include="Kits\ConvertKit.cs" />
+    <Compile Include="Kits\CssKit.cs" />
+    <Compile Include="Kits\DatetimeKit.cs" />
+    <Compile Include="Kits\EmailKit.cs" />
+    <Compile Include="Kits\EncryptKit.cs" />
+    <Compile Include="Kits\EnumerateKit.cs" />
+    <Compile Include="Kits\ExcelKit.cs" />
+    <Compile Include="Kits\FileKit.cs" />
+    <Compile Include="Kits\HProgressBar.cs" />
+    <Compile Include="Kits\HtmlKit.cs" />
+    <Compile Include="Kits\HttpKit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Kits\ImageKit.cs" />
+    <Compile Include="Kits\IPScaner.cs" />
+    <Compile Include="Kits\JavascriptKit.cs" />
+    <Compile Include="Kits\JsonKit.cs" />
+    <Compile Include="Kits\ManagedThreadPool.cs" />
+    <Compile Include="Kits\PageKit.cs" />
+    <Compile Include="Kits\SecureCodeKit.cs" />
+    <Compile Include="Kits\SerializeKit.cs" />
+    <Compile Include="Kits\StreamKit.cs" />
+    <Compile Include="Kits\StringKit.cs" />
+    <Compile Include="Kits\ThumbKit.cs" />
+    <Compile Include="Kits\TypeKit.cs" />
+    <Compile Include="Kits\ValidateKit.cs" />
+    <Compile Include="Kits\WebServiceKit.cs" />
+    <Compile Include="Kits\WordKit.cs" />
+    <Compile Include="Kits\XmlDocumentExtender.cs" />
+    <Compile Include="Kits\XmlKit.cs" />
+    <Compile Include="Kits\XmlVisitor.cs" />
+    <Compile Include="Kits\XmlWriter.cs" />
+    <Compile Include="Kits\ZipKit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiteMap\ISiteMapService.cs" />
+    <Compile Include="SiteMap\SiteMapHelper.cs" />
+    <Compile Include="SiteMap\URL.cs" />
+    <Compile Include="System\Collections\FastPropertyComparer.cs" />
+    <Compile Include="System\Collections\Generic\ListBack.cs" />
+    <Compile Include="System\Collections\Generic\ListEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\ComparableEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Config\RewriterConfiguration.cs" />
+    <Compile Include="System\Config\RewriterRule.cs" />
+    <Compile Include="System\Config\RewriterRuleCollection.cs" />
+    <Compile Include="System\Data\ISearchCondition.cs" />
+    <Compile Include="System\Data\ISearchOrderBy.cs" />
+    <Compile Include="System\Data\ISearchQueryString.cs" />
+    <Compile Include="System\Data\ObjectIsBaseTypeEx.cs" />
+    <Compile Include="System\Data\PagerParameters.cs" />
+    <Compile Include="System\Data\Pager\PagerDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Data\ServiceBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\DateTimeDiff.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\DateTimeEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\DictionaryEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Drawing\ImageThumb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Drawing\ValidateImage.cs" />
+    <Compile Include="System\DynamicEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\EnumerableEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\EnumEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\ExpressionHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\DirectoryEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\FileEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Log\ExceptionLoger.cs" />
+    <Compile Include="Log\Logger.cs" />
+    <Compile Include="System\ISearchModel.cs" />
+    <Compile Include="System\Net\WebDownload.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="System\NumberEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\ObjectEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\QueryableEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Reflection\PropertyInfoEx.cs" />
+    <Compile Include="System\ResponseEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Config\RewriterConfig.cs" />
+    <Compile Include="System\SqlSafeParamEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\StringEx.cs" />
+    <Compile Include="System\Text\StringBuilderEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\TypeEx.cs" />
+    <Compile Include="System\Web\DomainHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Web\RequestEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Web\ValidateCoder.cs" />
+    <Compile Include="System\Windows\Forms\WebBrowserEx.cs" />
+    <Compile Include="System\Xml\Linq\XElementEx.cs" />
+    <Compile Include="Threads\ThreadQueue.cs" />
+    <Compile Include="Upload\UploadConfig.cs" />
+    <Compile Include="Upload\UploadHelper.cs" />
+    <Compile Include="Upload\UpYun.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dapper\Dapper.Contrib\Dapper.Contrib.csproj">
+      <Project>{c2fc4df5-c8d1-4ea8-8e0c-85a3793eb0bb}</Project>
+      <Name>Dapper.Contrib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dapper\Dapper\Dapper.csproj">
+      <Project>{DAF737E1-05B5-4189-A5AA-DAC6233B64D7}</Project>
+      <Name>Dapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="System\IO\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Office\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

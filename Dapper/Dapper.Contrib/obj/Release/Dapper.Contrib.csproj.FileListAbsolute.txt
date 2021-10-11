@@ -1,0 +1,14 @@
+E:\Elysian\ChinaBM\Dapper\Dapper.Contrib\bin\Release\Dapper.Contrib.dll
+E:\Elysian\ChinaBM\Dapper\Dapper.Contrib\bin\Release\Dapper.Contrib.pdb
+E:\Elysian\ChinaBM\Dapper\Dapper.Contrib\bin\Release\Dapper.dll
+E:\Elysian\ChinaBM\Dapper\Dapper.Contrib\bin\Release\Dapper.pdb
+E:\Elysian\ChinaBM\Dapper\Dapper.Contrib\obj\Release\ResolveAssemblyReference.cache
+E:\Elysian\ChinaBM\Dapper\Dapper.Contrib\obj\Release\Dapper.Contrib.dll
+E:\Elysian\ChinaBM\Dapper\Dapper.Contrib\obj\Release\Dapper.Contrib.pdb
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper.Contrib\bin\Release\Dapper.Contrib.dll
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper.Contrib\bin\Release\Dapper.Contrib.pdb
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper.Contrib\bin\Release\Dapper.dll
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper.Contrib\bin\Release\Dapper.pdb
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper.Contrib\obj\Release\Dapper.Contrib.csprojResolveAssemblyReference.cache
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper.Contrib\obj\Release\Dapper.Contrib.dll
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper.Contrib\obj\Release\Dapper.Contrib.pdb

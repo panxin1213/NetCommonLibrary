@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA2372CD-FE46-4BEE-BFEC-57DA40607D58}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Admin.Model</RootNamespace>
+    <AssemblyName>Admin.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Partial\Common\T_AD.cs" />
+    <Compile Include="Partial\Common\T_FriendLink.cs" />
+    <Compile Include="Partial\Common\T_Image_Record.cs" />
+    <Compile Include="Partial\Common\T_Robot.cs" />
+    <Compile Include="Partial\Common\T_SEO.cs" />
+    <Compile Include="Partial\T_Admin.cs" />
+    <Compile Include="Partial\T_Admin_Role.cs" />
+    <Compile Include="Partial\T_Admin_Role_Right.cs" />
+    <Compile Include="Partial\T_Admin_To_Role.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="T_AD.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Admin.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Admin_Log.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Admin_Role.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Admin_Role_Right.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_FriendLink.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Image_Record.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Robot.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SEO.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="AdminEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdminEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AdminEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdminEntity.edmx</DependentUpon>
+      <LastGenOutput>AdminEntity.cs</LastGenOutput>
+    </None>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common.Libray\Common.Library.csproj">
+      <Project>{d3244527-1fea-438c-8528-a1e45d151a7c}</Project>
+      <Name>Common.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common.MVC.Library\Common.MVC.Library.csproj">
+      <Project>{fe915871-5858-4d91-9dab-8b8e8a1e16cb}</Project>
+      <Name>Common.MVC.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dapper\Dapper.Contrib\Dapper.Contrib.csproj">
+      <Project>{c2fc4df5-c8d1-4ea8-8e0c-85a3793eb0bb}</Project>
+      <Name>Dapper.Contrib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dapper\Dapper\Dapper.csproj">
+      <Project>{daf737e1-05b5-4189-a5aa-dac6233b64d7}</Project>
+      <Name>Dapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

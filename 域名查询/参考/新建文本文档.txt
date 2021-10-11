@@ -1,0 +1,5 @@
+http://www.sogou.com/websearch/xml/xml4union.jsp?query=site:fzlft.com
+
+http://rank.ie.sogou.com/sogourank.php?ur=http://www.fzlft.com/
+
+http://index.sogou.com/sidx?type=0&domain=1&query=0001d.com

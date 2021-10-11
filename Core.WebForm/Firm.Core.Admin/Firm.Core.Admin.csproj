@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{62C7A312-DEB7-477A-84F9-53657541CCB0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Firm.Core.Admin</RootNamespace>
+    <AssemblyName>Firm.Core.Admin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authority\ManagePermissions.cs" />
+    <Compile Include="ManagePermissions\Identity.cs" />
+    <Compile Include="ManagePermissions\ManageProvider.cs" />
+    <Compile Include="ManagePermissions\Manager.cs" />
+    <Compile Include="ManagePermissions\Principal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchModel\Admin_Logs_Manage_SearchModel.cs" />
+    <Compile Include="SearchModel\Admin_Manage_SearchModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SearchModel\Admin_Record_SearchModel.cs" />
+    <Compile Include="SearchModel\Admin_Role_Manage_SearchModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service\Admin_Login_Errors_Service.cs" />
+    <Compile Include="Service\Admin_Logs_Service.cs" />
+    <Compile Include="Service\Admin_Record_Service.cs" />
+    <Compile Include="Service\Admin_Service.cs" />
+    <Compile Include="Service\Admin_Role_Right_Service.cs" />
+    <Compile Include="Service\Admin_Role_Service.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common.Libray\Common.Library.csproj">
+      <Project>{D3244527-1FEA-438C-8528-A1E45D151A7C}</Project>
+      <Name>Common.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common.WebForm.Library\Common.WebForm.Library.csproj">
+      <Project>{40606a47-5152-4247-83bb-fb04570fecef}</Project>
+      <Name>Common.WebForm.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dapper\Dapper.Contrib\Dapper.Contrib.csproj">
+      <Project>{C2FC4DF5-C8D1-4EA8-8E0C-85A3793EB0BB}</Project>
+      <Name>Dapper.Contrib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dapper\Dapper\Dapper.csproj">
+      <Project>{DAF737E1-05B5-4189-A5AA-DAC6233B64D7}</Project>
+      <Name>Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Model\Firm.Model\Firm.Model.csproj">
+      <Project>{8cda6b38-e03f-4abb-913b-b29b2500e4e8}</Project>
+      <Name>Firm.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

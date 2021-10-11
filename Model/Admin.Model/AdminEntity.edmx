@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_AdminModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="T_AD">
+          <Key>
+            <PropertyRef Name="F_Ad_Id" />
+          </Key>
+          <Property Name="F_Ad_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_Ad_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_Ad_Type" Type="int" Nullable="false" />
+          <Property Name="F_Ad_Link" Type="nvarchar" MaxLength="500" />
+          <Property Name="F_Ad_Image" Type="nvarchar" MaxLength="500" />
+          <Property Name="F_Ad_Des" Type="nvarchar" MaxLength="500" />
+          <Property Name="F_Ad_Html" Type="nvarchar(max)" />
+          <Property Name="F_Ad_IsLock" Type="bit" Nullable="false" />
+          <Property Name="F_Ad_Create" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Admin">
+          <Key>
+            <PropertyRef Name="F_Admin_Id" />
+          </Key>
+          <Property Name="F_Admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_Admin_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_Admin_RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_Admin_Password" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="F_Admin_Create" Type="datetime" Nullable="false" />
+          <Property Name="F_Admin_IsLock" Type="bit" Nullable="false" />
+          <Property Name="F_Admin_IsSupper" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“DB_Admin.dbo.T_Admin_Log”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="T_Admin_Log">
+          <Key>
+            <PropertyRef Name="F_A_L_AdminId" />
+            <PropertyRef Name="F_A_L_LoginTime" />
+            <PropertyRef Name="F_A_L_Ip" />
+          </Key>
+          <Property Name="F_A_L_AdminId" Type="int" Nullable="false" />
+          <Property Name="F_A_L_LoginTime" Type="datetime" Nullable="false" />
+          <Property Name="F_A_L_Ip" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Admin_Role">
+          <Key>
+            <PropertyRef Name="F_Role_Id" />
+          </Key>
+          <Property Name="F_Role_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_Role_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_Role_Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="F_Role_Create" Type="datetime" Nullable="false" />
+          <Property Name="F_Role_IsLock" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Admin_Role_Right">
+          <Key>
+            <PropertyRef Name="F_Admin_Right_RoleId" />
+            <PropertyRef Name="F_Admin_Right_Controller" />
+            <PropertyRef Name="F_Admin_Right_Action" />
+          </Key>
+          <Property Name="F_Admin_Right_RoleId" Type="int" Nullable="false" />
+          <Property Name="F_Admin_Right_Controller" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_Admin_Right_Action" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Admin_To_Role">
+          <Key>
+            <PropertyRef Name="F_Admin_Role_AdminId" />
+            <PropertyRef Name="F_Admin_Role_RoleId" />
+          </Key>
+          <Property Name="F_Admin_Role_AdminId" Type="int" Nullable="false" />
+          <Property Name="F_Admin_Role_RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_FriendLink">
+          <Key>
+            <PropertyRef Name="F_FriendLink_Id" />
+          </Key>
+          <Property Name="F_FriendLink_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_FriendLink_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_FriendLink_Url" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="F_FriendLink_Type" Type="int" Nullable="false" />
+          <Property Name="F_FriendLink_Image" Type="nvarchar" MaxLength="500" />
+          <Property Name="F_FriendLink_IsLock" Type="bit" Nullable="false" />
+          <Property Name="F_FriendLink_Create" Type="datetime" Nullable="false" />
+          <Property Name="F_FriendLink_Update" Type="datetime" Nullable="false" />
+          <Property Name="F_FriendLink_Order" Type="int" Nullable="false" />
+          <Property Name="F_FriendLink_ByAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="F_FriendLink_Content" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_Image_Record">
+          <Key>
+            <PropertyRef Name="F_Image_Record_Id" />
+          </Key>
+          <Property Name="F_Image_Record_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_Image_Record_FilePath" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="F_Image_Record_Num" Type="int" Nullable="false" />
+          <Property Name="F_Image_Record_InRecord" Type="nvarchar(max)" />
+          <Property Name="F_Image_Record_Md5" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Robot">
+          <Key>
+            <PropertyRef Name="F_Robot_Id" />
+          </Key>
+          <Property Name="F_Robot_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_Robot_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="F_Robot_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_Robot_Link" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="F_Robot_Create" Type="datetime" Nullable="false" />
+          <Property Name="F_Robot_Update" Type="datetime" Nullable="false" />
+          <Property Name="F_Robot_IsLock" Type="bit" Nullable="false" />
+          <Property Name="F_Robot_MobileLink" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="T_SEO">
+          <Key>
+            <PropertyRef Name="F_Seo_Id" />
+          </Key>
+          <Property Name="F_Seo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_Seo_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_Seo_MetaKey" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="F_Seo_MetaContent" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="F_Seo_Create" Type="datetime" Nullable="false" />
+          <Property Name="F_Seo_Update" Type="datetime" Nullable="false" />
+          <Property Name="F_Seo_IsLock" Type="bit" Nullable="false" />
+          <Property Name="F_Seo_Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="F_Seo_Action" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_Seo_Controller" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_Seo_Type" Type="int" Nullable="false" />
+          <Property Name="F_Seo_Search_Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="F_Seo_Search_MetaKey" Type="nvarchar" MaxLength="150" />
+          <Property Name="F_Seo_Search_MetaContent" Type="nvarchar" MaxLength="255" />
+          <Property Name="F_Seo_Area" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_Seo_Link" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK_T_Admin_Log_T_Admin">
+          <End Role="T_Admin" Type="Self.T_Admin" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_Admin_Log" Type="Self.T_Admin_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Admin">
+              <PropertyRef Name="F_Admin_Id" />
+            </Principal>
+            <Dependent Role="T_Admin_Log">
+              <PropertyRef Name="F_A_L_AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Admin_Role_Right_T_Admin_Role">
+          <End Role="T_Admin_Role" Type="Self.T_Admin_Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_Admin_Role_Right" Type="Self.T_Admin_Role_Right" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Admin_Role">
+              <PropertyRef Name="F_Role_Id" />
+            </Principal>
+            <Dependent Role="T_Admin_Role_Right">
+              <PropertyRef Name="F_Admin_Right_RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Admin_To_Role_T_Admin">
+          <End Role="T_Admin" Type="Self.T_Admin" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_Admin_To_Role" Type="Self.T_Admin_To_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Admin">
+              <PropertyRef Name="F_Admin_Id" />
+            </Principal>
+            <Dependent Role="T_Admin_To_Role">
+              <PropertyRef Name="F_Admin_Role_AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Admin_To_Role_T_Admin_Role">
+          <End Role="T_Admin_Role" Type="Self.T_Admin_Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_Admin_To_Role" Type="Self.T_Admin_To_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Admin_Role">
+              <PropertyRef Name="F_Role_Id" />
+            </Principal>
+            <Dependent Role="T_Admin_To_Role">
+              <PropertyRef Name="F_Admin_Role_RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_AdminModelStoreContainer">
+          <EntitySet Name="T_AD" EntityType="Self.T_AD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Admin" EntityType="Self.T_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Admin_Role" EntityType="Self.T_Admin_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Admin_Role_Right" EntityType="Self.T_Admin_Role_Right" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Admin_To_Role" EntityType="Self.T_Admin_To_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_FriendLink" EntityType="Self.T_FriendLink" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Image_Record" EntityType="Self.T_Image_Record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Robot" EntityType="Self.T_Robot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_SEO" EntityType="Self.T_SEO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Admin_Log" EntityType="Self.T_Admin_Log" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[T_Admin_Log].[F_A_L_AdminId] AS [F_A_L_AdminId], 
+[T_Admin_Log].[F_A_L_LoginTime] AS [F_A_L_LoginTime], 
+[T_Admin_Log].[F_A_L_Ip] AS [F_A_L_Ip]
+FROM [dbo].[T_Admin_Log] AS [T_Admin_Log]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_T_Admin_Log_T_Admin" Association="Self.FK_T_Admin_Log_T_Admin">
+            <End Role="T_Admin" EntitySet="T_Admin" />
+            <End Role="T_Admin_Log" EntitySet="T_Admin_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Admin_Role_Right_T_Admin_Role" Association="Self.FK_T_Admin_Role_Right_T_Admin_Role">
+            <End Role="T_Admin_Role" EntitySet="T_Admin_Role" />
+            <End Role="T_Admin_Role_Right" EntitySet="T_Admin_Role_Right" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Admin_To_Role_T_Admin" Association="Self.FK_T_Admin_To_Role_T_Admin">
+            <End Role="T_Admin" EntitySet="T_Admin" />
+            <End Role="T_Admin_To_Role" EntitySet="T_Admin_To_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Admin_To_Role_T_Admin_Role" Association="Self.FK_T_Admin_To_Role_T_Admin_Role">
+            <End Role="T_Admin_Role" EntitySet="T_Admin_Role" />
+            <End Role="T_Admin_To_Role" EntitySet="T_Admin_To_Role" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_AdminModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="T_Admin">
+          <Key>
+            <PropertyRef Name="F_Admin_Id" />
+          </Key>
+          <Property Name="F_Admin_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_Admin_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="F_Admin_RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_Admin_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="F_Admin_Create" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="F_Admin_IsLock" Type="Boolean" Nullable="false" />
+          <Property Name="F_Admin_IsSupper" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_Admin_Log" Relationship="Self.FK_T_Admin_Log_T_Admin" FromRole="T_Admin" ToRole="T_Admin_Log" />
+          <NavigationProperty Name="T_Admin_Role" Relationship="Self.T_Admin_To_Role" FromRole="T_Admin" ToRole="T_Admin_Role" />
+        </EntityType>
+        <EntityType Name="T_Admin_Role">
+          <Key>
+            <PropertyRef Name="F_Role_Id" />
+          </Key>
+          <Property Name="F_Role_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="F_Role_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="F_Role_Create" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="F_Role_IsLock" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_Admin_Role_Right" Relationship="Self.FK_T_Admin_Role_Right_T_Admin_Role" FromRole="T_Admin_Role" ToRole="T_Admin_Role_Right" />
+          <NavigationProperty Name="T_Admin" Relationship="Self.T_Admin_To_Role" FromRole="T_Admin_Role" ToRole="T_Admin" />
+        </EntityType>
+        <EntityType Name="T_Admin_Role_Right">
+          <Key>
+            <PropertyRef Name="F_Admin_Right_RoleId" />
+            <PropertyRef Name="F_Admin_Right_Controller" />
+            <PropertyRef Name="F_Admin_Right_Action" />
+          </Key>
+          <Property Name="F_Admin_Right_RoleId" Type="Int32" Nullable="false" />
+          <Property Name="F_Admin_Right_Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="F_Admin_Right_Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="T_Admin_Role" Relationship="Self.FK_T_Admin_Role_Right_T_Admin_Role" FromRole="T_Admin_Role_Right" ToRole="T_Admin_Role" />
+        </EntityType>
+        <EntityType Name="T_Admin_Log">
+          <Key>
+            <PropertyRef Name="F_A_L_AdminId" />
+            <PropertyRef Name="F_A_L_LoginTime" />
+            <PropertyRef Name="F_A_L_Ip" />
+          </Key>
+          <Property Name="F_A_L_AdminId" Type="Int32" Nullable="false" />
+          <Property Name="F_A_L_LoginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="F_A_L_Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="T_Admin" Relationship="Self.FK_T_Admin_Log_T_Admin" FromRole="T_Admin_Log" ToRole="T_Admin" />
+        </EntityType>
+        <Association Name="FK_T_Admin_Log_T_Admin">
+          <End Role="T_Admin" Type="Self.T_Admin" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_Admin_Log" Type="Self.T_Admin_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Admin">
+              <PropertyRef Name="F_Admin_Id" />
+            </Principal>
+            <Dependent Role="T_Admin_Log">
+              <PropertyRef Name="F_A_L_AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Admin_Role_Right_T_Admin_Role">
+          <End Role="T_Admin_Role" Type="Self.T_Admin_Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_Admin_Role_Right" Type="Self.T_Admin_Role_Right" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Admin_Role">
+              <PropertyRef Name="F_Role_Id" />
+            </Principal>
+            <Dependent Role="T_Admin_Role_Right">
+              <PropertyRef Name="F_Admin_Right_RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_Admin_To_Role">
+          <End Role="T_Admin" Type="Self.T_Admin" Multiplicity="*" />
+          <End Role="T_Admin_Role" Type="Self.T_Admin_Role" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DB_AdminEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Admin" EntityType="Self.T_Admin" />
+          <EntitySet Name="T_Admin_Role" EntityType="Self.T_Admin_Role" />
+          <EntitySet Name="T_Admin_Role_Right" EntityType="Self.T_Admin_Role_Right" />
+          <EntitySet Name="T_Admin_Log" EntityType="Self.T_Admin_Log" />
+          <AssociationSet Name="FK_T_Admin_Log_T_Admin" Association="Self.FK_T_Admin_Log_T_Admin">
+            <End Role="T_Admin" EntitySet="T_Admin" />
+            <End Role="T_Admin_Log" EntitySet="T_Admin_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Admin_Role_Right_T_Admin_Role" Association="Self.FK_T_Admin_Role_Right_T_Admin_Role">
+            <End Role="T_Admin_Role" EntitySet="T_Admin_Role" />
+            <End Role="T_Admin_Role_Right" EntitySet="T_Admin_Role_Right" />
+          </AssociationSet>
+          <AssociationSet Name="T_Admin_To_Role" Association="Self.T_Admin_To_Role">
+            <End Role="T_Admin" EntitySet="T_Admin" />
+            <End Role="T_Admin_Role" EntitySet="T_Admin_Role" />
+          </AssociationSet>
+          <EntitySet Name="T_AD" EntityType="DB_AdminModel.T_AD" />
+          <EntitySet Name="T_FriendLink" EntityType="DB_AdminModel.T_FriendLink" />
+          <EntitySet Name="T_Image_Record" EntityType="DB_AdminModel.T_Image_Record" />
+          <EntitySet Name="T_Robot" EntityType="DB_AdminModel.T_Robot" />
+          <EntitySet Name="T_SEO" EntityType="DB_AdminModel.T_SEO" />
+        </EntityContainer>
+        <EntityType Name="T_AD">
+          <Key>
+            <PropertyRef Name="F_Ad_Id" />
+          </Key>
+          <Property Name="F_Ad_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_Ad_Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_Ad_Type" Type="Int32" Nullable="false" />
+          <Property Name="F_Ad_Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="F_Ad_Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="F_Ad_Des" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="F_Ad_Html" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="F_Ad_IsLock" Type="Boolean" Nullable="false" />
+          <Property Name="F_Ad_Create" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_FriendLink">
+          <Key>
+            <PropertyRef Name="F_FriendLink_Id" />
+          </Key>
+          <Property Name="F_FriendLink_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_FriendLink_Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_FriendLink_Url" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="F_FriendLink_Type" Type="Int32" Nullable="false" />
+          <Property Name="F_FriendLink_Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="F_FriendLink_IsLock" Type="Boolean" Nullable="false" />
+          <Property Name="F_FriendLink_Create" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="F_FriendLink_Update" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="F_FriendLink_Order" Type="Int32" Nullable="false" />
+          <Property Name="F_FriendLink_ByAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="F_FriendLink_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Image_Record">
+          <Key>
+            <PropertyRef Name="F_Image_Record_Id" />
+          </Key>
+          <Property Name="F_Image_Record_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_Image_Record_FilePath" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="F_Image_Record_Num" Type="Int32" Nullable="false" />
+          <Property Name="F_Image_Record_InRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="F_Image_Record_Md5" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Robot">
+          <Key>
+            <PropertyRef Name="F_Robot_Id" />
+          </Key>
+          <Property Name="F_Robot_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_Robot_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="F_Robot_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_Robot_Link" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="F_Robot_Create" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="F_Robot_Update" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="F_Robot_IsLock" Type="Boolean" Nullable="false" />
+          <Property Name="F_Robot_MobileLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_SEO">
+          <Key>
+            <PropertyRef Name="F_Seo_Id" />
+          </Key>
+          <Property Name="F_Seo_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_Seo_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_MetaKey" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_MetaContent" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_Create" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="F_Seo_Update" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="F_Seo_IsLock" Type="Boolean" Nullable="false" />
+          <Property Name="F_Seo_Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_Type" Type="Int32" Nullable="false" />
+          <Property Name="F_Seo_Search_Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_Search_MetaKey" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_Search_MetaContent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_Seo_Link" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_AdminModelStoreContainer" CdmEntityContainer="DB_AdminEntities">
+          <EntitySetMapping Name="T_Admin">
+            <EntityTypeMapping TypeName="DB_AdminModel.T_Admin">
+              <MappingFragment StoreEntitySet="T_Admin">
+                <ScalarProperty Name="F_Admin_Id" ColumnName="F_Admin_Id" />
+                <ScalarProperty Name="F_Admin_Name" ColumnName="F_Admin_Name" />
+                <ScalarProperty Name="F_Admin_RealName" ColumnName="F_Admin_RealName" />
+                <ScalarProperty Name="F_Admin_Password" ColumnName="F_Admin_Password" />
+                <ScalarProperty Name="F_Admin_Create" ColumnName="F_Admin_Create" />
+                <ScalarProperty Name="F_Admin_IsLock" ColumnName="F_Admin_IsLock" />
+                <ScalarProperty Name="F_Admin_IsSupper" ColumnName="F_Admin_IsSupper" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Admin_Role">
+            <EntityTypeMapping TypeName="DB_AdminModel.T_Admin_Role">
+              <MappingFragment StoreEntitySet="T_Admin_Role">
+                <ScalarProperty Name="F_Role_Id" ColumnName="F_Role_Id" />
+                <ScalarProperty Name="F_Role_Name" ColumnName="F_Role_Name" />
+                <ScalarProperty Name="F_Role_Description" ColumnName="F_Role_Description" />
+                <ScalarProperty Name="F_Role_Create" ColumnName="F_Role_Create" />
+                <ScalarProperty Name="F_Role_IsLock" ColumnName="F_Role_IsLock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Admin_Role_Right">
+            <EntityTypeMapping TypeName="DB_AdminModel.T_Admin_Role_Right">
+              <MappingFragment StoreEntitySet="T_Admin_Role_Right">
+                <ScalarProperty Name="F_Admin_Right_RoleId" ColumnName="F_Admin_Right_RoleId" />
+                <ScalarProperty Name="F_Admin_Right_Controller" ColumnName="F_Admin_Right_Controller" />
+                <ScalarProperty Name="F_Admin_Right_Action" ColumnName="F_Admin_Right_Action" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Admin_Log">
+            <EntityTypeMapping TypeName="DB_AdminModel.T_Admin_Log">
+              <MappingFragment StoreEntitySet="T_Admin_Log">
+                <ScalarProperty Name="F_A_L_AdminId" ColumnName="F_A_L_AdminId" />
+                <ScalarProperty Name="F_A_L_LoginTime" ColumnName="F_A_L_LoginTime" />
+                <ScalarProperty Name="F_A_L_Ip" ColumnName="F_A_L_Ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="T_Admin_To_Role" TypeName="DB_AdminModel.T_Admin_To_Role" StoreEntitySet="T_Admin_To_Role">
+            <EndProperty Name="T_Admin">
+              <ScalarProperty Name="F_Admin_Id" ColumnName="F_Admin_Role_AdminId" />
+            </EndProperty>
+            <EndProperty Name="T_Admin_Role">
+              <ScalarProperty Name="F_Role_Id" ColumnName="F_Admin_Role_RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="T_AD">
+            <EntityTypeMapping TypeName="DB_AdminModel.T_AD">
+              <MappingFragment StoreEntitySet="T_AD">
+                <ScalarProperty Name="F_Ad_Create" ColumnName="F_Ad_Create" />
+                <ScalarProperty Name="F_Ad_IsLock" ColumnName="F_Ad_IsLock" />
+                <ScalarProperty Name="F_Ad_Html" ColumnName="F_Ad_Html" />
+                <ScalarProperty Name="F_Ad_Des" ColumnName="F_Ad_Des" />
+                <ScalarProperty Name="F_Ad_Image" ColumnName="F_Ad_Image" />
+                <ScalarProperty Name="F_Ad_Link" ColumnName="F_Ad_Link" />
+                <ScalarProperty Name="F_Ad_Type" ColumnName="F_Ad_Type" />
+                <ScalarProperty Name="F_Ad_Title" ColumnName="F_Ad_Title" />
+                <ScalarProperty Name="F_Ad_Id" ColumnName="F_Ad_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_FriendLink">
+            <EntityTypeMapping TypeName="DB_AdminModel.T_FriendLink">
+              <MappingFragment StoreEntitySet="T_FriendLink">
+                <ScalarProperty Name="F_FriendLink_Content" ColumnName="F_FriendLink_Content" />
+                <ScalarProperty Name="F_FriendLink_ByAddress" ColumnName="F_FriendLink_ByAddress" />
+                <ScalarProperty Name="F_FriendLink_Order" ColumnName="F_FriendLink_Order" />
+                <ScalarProperty Name="F_FriendLink_Update" ColumnName="F_FriendLink_Update" />
+                <ScalarProperty Name="F_FriendLink_Create" ColumnName="F_FriendLink_Create" />
+                <ScalarProperty Name="F_FriendLink_IsLock" ColumnName="F_FriendLink_IsLock" />
+                <ScalarProperty Name="F_FriendLink_Image" ColumnName="F_FriendLink_Image" />
+                <ScalarProperty Name="F_FriendLink_Type" ColumnName="F_FriendLink_Type" />
+                <ScalarProperty Name="F_FriendLink_Url" ColumnName="F_FriendLink_Url" />
+                <ScalarProperty Name="F_FriendLink_Title" ColumnName="F_FriendLink_Title" />
+                <ScalarProperty Name="F_FriendLink_Id" ColumnName="F_FriendLink_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Image_Record">
+            <EntityTypeMapping TypeName="DB_AdminModel.T_Image_Record">
+              <MappingFragment StoreEntitySet="T_Image_Record">
+                <ScalarProperty Name="F_Image_Record_Md5" ColumnName="F_Image_Record_Md5" />
+                <ScalarProperty Name="F_Image_Record_InRecord" ColumnName="F_Image_Record_InRecord" />
+                <ScalarProperty Name="F_Image_Record_Num" ColumnName="F_Image_Record_Num" />
+                <ScalarProperty Name="F_Image_Record_FilePath" ColumnName="F_Image_Record_FilePath" />
+                <ScalarProperty Name="F_Image_Record_Id" ColumnName="F_Image_Record_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Robot">
+            <EntityTypeMapping TypeName="DB_AdminModel.T_Robot">
+              <MappingFragment StoreEntitySet="T_Robot">
+                <ScalarProperty Name="F_Robot_MobileLink" ColumnName="F_Robot_MobileLink" />
+                <ScalarProperty Name="F_Robot_IsLock" ColumnName="F_Robot_IsLock" />
+                <ScalarProperty Name="F_Robot_Update" ColumnName="F_Robot_Update" />
+                <ScalarProperty Name="F_Robot_Create" ColumnName="F_Robot_Create" />
+                <ScalarProperty Name="F_Robot_Link" ColumnName="F_Robot_Link" />
+                <ScalarProperty Name="F_Robot_Type" ColumnName="F_Robot_Type" />
+                <ScalarProperty Name="F_Robot_Name" ColumnName="F_Robot_Name" />
+                <ScalarProperty Name="F_Robot_Id" ColumnName="F_Robot_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_SEO">
+            <EntityTypeMapping TypeName="DB_AdminModel.T_SEO">
+              <MappingFragment StoreEntitySet="T_SEO">
+                <ScalarProperty Name="F_Seo_Link" ColumnName="F_Seo_Link" />
+                <ScalarProperty Name="F_Seo_Area" ColumnName="F_Seo_Area" />
+                <ScalarProperty Name="F_Seo_Search_MetaContent" ColumnName="F_Seo_Search_MetaContent" />
+                <ScalarProperty Name="F_Seo_Search_MetaKey" ColumnName="F_Seo_Search_MetaKey" />
+                <ScalarProperty Name="F_Seo_Search_Title" ColumnName="F_Seo_Search_Title" />
+                <ScalarProperty Name="F_Seo_Type" ColumnName="F_Seo_Type" />
+                <ScalarProperty Name="F_Seo_Controller" ColumnName="F_Seo_Controller" />
+                <ScalarProperty Name="F_Seo_Action" ColumnName="F_Seo_Action" />
+                <ScalarProperty Name="F_Seo_Title" ColumnName="F_Seo_Title" />
+                <ScalarProperty Name="F_Seo_IsLock" ColumnName="F_Seo_IsLock" />
+                <ScalarProperty Name="F_Seo_Update" ColumnName="F_Seo_Update" />
+                <ScalarProperty Name="F_Seo_Create" ColumnName="F_Seo_Create" />
+                <ScalarProperty Name="F_Seo_MetaContent" ColumnName="F_Seo_MetaContent" />
+                <ScalarProperty Name="F_Seo_MetaKey" ColumnName="F_Seo_MetaKey" />
+                <ScalarProperty Name="F_Seo_Name" ColumnName="F_Seo_Name" />
+                <ScalarProperty Name="F_Seo_Id" ColumnName="F_Seo_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="7d74d19fdb6e4492ab6c203b7a2796ea" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_AdminModel.T_Admin" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AdminModel.T_Admin_Role" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AdminModel.T_Admin_Role_Right" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AdminModel.T_Admin_Log" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="DB_AdminModel.FK_T_Admin_Log_T_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_AdminModel.FK_T_Admin_Role_Right_T_Admin_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_AdminModel.T_Admin_To_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_AdminModel.T_AD" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DB_AdminModel.T_FriendLink" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_AdminModel.T_Image_Record" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_AdminModel.T_Robot" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_AdminModel.T_SEO" Width="1.5" PointX="7.75" PointY="4.75" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

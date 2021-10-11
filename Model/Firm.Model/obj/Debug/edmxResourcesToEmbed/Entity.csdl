@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FirmModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="FirmEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="D_Ad" EntityType="FirmModel.D_Ad" />
+    <EntitySet Name="D_Ad_To_View" EntityType="FirmModel.D_Ad_To_View" />
+    <EntitySet Name="D_Ad_View" EntityType="FirmModel.D_Ad_View" />
+    <EntitySet Name="D_Admin_Role" EntityType="FirmModel.D_Admin_Role" />
+    <EntitySet Name="D_FriendLink" EntityType="FirmModel.D_FriendLink" />
+    <EntitySet Name="D_Image_Record" EntityType="FirmModel.D_Image_Record" />
+    <EntitySet Name="D_Admin_Role_Right" EntityType="FirmModel.D_Admin_Role_Right" />
+    <AssociationSet Name="FK_D_Ad_To_View_D_Ad" Association="FirmModel.FK_D_Ad_To_View_D_Ad">
+      <End Role="D_Ad" EntitySet="D_Ad" />
+      <End Role="D_Ad_To_View" EntitySet="D_Ad_To_View" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_Ad_To_View_D_Ad_View" Association="FirmModel.FK_D_Ad_To_View_D_Ad_View">
+      <End Role="D_Ad_View" EntitySet="D_Ad_View" />
+      <End Role="D_Ad_To_View" EntitySet="D_Ad_To_View" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_Admin_Role_Right_D_Admin_Role" Association="FirmModel.FK_D_Admin_Role_Right_D_Admin_Role">
+      <End Role="D_Admin_Role" EntitySet="D_Admin_Role" />
+      <End Role="D_Admin_Role_Right" EntitySet="D_Admin_Role_Right" />
+    </AssociationSet>
+    <EntitySet Name="D_Admin_Logs" EntityType="FirmModel.D_Admin_Logs" />
+    <EntitySet Name="D_Admin" EntityType="FirmModel.D_Admin" />
+    <AssociationSet Name="D_Admin_To_Role" Association="FirmModel.D_Admin_To_Role">
+      <End Role="D_Admin" EntitySet="D_Admin" />
+      <End Role="D_Admin_Role" EntitySet="D_Admin_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_Admin_Logs_D_Admin" Association="FirmModel.FK_D_Admin_Logs_D_Admin">
+      <End Role="D_Admin" EntitySet="D_Admin" />
+      <End Role="D_Admin_Logs" EntitySet="D_Admin_Logs" />
+    </AssociationSet>
+    <EntitySet Name="D_Admin_Login_Errors" EntityType="FirmModel.D_Admin_Login_Errors" />
+    <EntitySet Name="D_Admin_Record" EntityType="FirmModel.D_Admin_Record" />
+    <EntitySet Name="D_SEO" EntityType="FirmModel.D_SEO" />
+    <AssociationSet Name="FK_D_Admin_Record_D_Admin" Association="FirmModel.FK_D_Admin_Record_D_Admin">
+      <End Role="D_Admin" EntitySet="D_Admin" />
+      <End Role="D_Admin_Record" EntitySet="D_Admin_Record" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="D_Ad">
+    <Key>
+      <PropertyRef Name="F_Ad_Id" />
+    </Key>
+    <Property Name="F_Ad_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_Ad_Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_Ad_Type" Type="Int32" Nullable="false" />
+    <Property Name="F_Ad_Link" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="F_Ad_Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="F_Ad_Desc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="F_Ad_Html" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="F_Ad_IsLock" Type="Boolean" Nullable="false" />
+    <Property Name="F_Ad_Create" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="D_Ad_To_View" Relationship="FirmModel.FK_D_Ad_To_View_D_Ad" FromRole="D_Ad" ToRole="D_Ad_To_View" />
+  </EntityType>
+  <EntityType Name="D_Ad_To_View">
+    <Key>
+      <PropertyRef Name="F_M_To_V_View_ID" />
+      <PropertyRef Name="F_M_To_V_AD_ID" />
+    </Key>
+    <Property Name="F_M_To_V_View_ID" Type="Int32" Nullable="false" />
+    <Property Name="F_M_To_V_AD_ID" Type="Int32" Nullable="false" />
+    <Property Name="F_M_To_V_EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="F_M_To_V_StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="F_M_To_V_Order" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="D_Ad" Relationship="FirmModel.FK_D_Ad_To_View_D_Ad" FromRole="D_Ad_To_View" ToRole="D_Ad" />
+    <NavigationProperty Name="D_Ad_View" Relationship="FirmModel.FK_D_Ad_To_View_D_Ad_View" FromRole="D_Ad_To_View" ToRole="D_Ad_View" />
+  </EntityType>
+  <EntityType Name="D_Ad_View">
+    <Key>
+      <PropertyRef Name="F_View_Id" />
+    </Key>
+    <Property Name="F_View_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_View_Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_View_Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="F_View_Create" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="D_Ad_To_View" Relationship="FirmModel.FK_D_Ad_To_View_D_Ad_View" FromRole="D_Ad_View" ToRole="D_Ad_To_View" />
+  </EntityType>
+  <EntityType Name="D_Admin_Role">
+    <Key>
+      <PropertyRef Name="F_Role_Id" />
+    </Key>
+    <Property Name="F_Role_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_Role_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_Role_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="F_Role_Time_Create" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="F_Role_IsLock" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="D_Admin_Role_Right" Relationship="FirmModel.FK_D_Admin_Role_Right_D_Admin_Role" FromRole="D_Admin_Role" ToRole="D_Admin_Role_Right" />
+    <NavigationProperty Name="D_Admin" Relationship="FirmModel.D_Admin_To_Role" FromRole="D_Admin_Role" ToRole="D_Admin" />
+  </EntityType>
+  <EntityType Name="D_FriendLink">
+    <Key>
+      <PropertyRef Name="F_FriendLink_Id" />
+    </Key>
+    <Property Name="F_FriendLink_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_FriendLink_Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_FriendLink_Url" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="F_FriendLink_Type" Type="Byte" Nullable="false" />
+    <Property Name="F_FriendLink_Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="F_FriendLink_IsLock" Type="Boolean" Nullable="false" />
+    <Property Name="F_FriendLink_Create" Type="DateTime" Precision="3" />
+    <Property Name="F_FriendLink_Update" Type="DateTime" Precision="3" />
+    <Property Name="F_FriendLink_Order" Type="Int32" Nullable="false" />
+    <Property Name="F_FriendLink_ByAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="D_Image_Record">
+    <Key>
+      <PropertyRef Name="F_Image_Record_Id" />
+    </Key>
+    <Property Name="F_Image_Record_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_Image_Record_FilePath" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="F_Image_Record_Num" Type="Int32" Nullable="false" />
+    <Property Name="F_Image_Record_InRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="F_Image_Record_Md5" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="D_Admin_Role_Right">
+    <Key>
+      <PropertyRef Name="F_Admin_Right_RoleId" />
+      <PropertyRef Name="NameSpace" />
+      <PropertyRef Name="ClassName" />
+    </Key>
+    <Property Name="F_Admin_Right_RoleId" Type="Int32" Nullable="false" />
+    <Property Name="NameSpace" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClassName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="D_Admin_Role" Relationship="FirmModel.FK_D_Admin_Role_Right_D_Admin_Role" FromRole="D_Admin_Role_Right" ToRole="D_Admin_Role" />
+  </EntityType>
+  <Association Name="FK_D_Ad_To_View_D_Ad">
+    <End Type="FirmModel.D_Ad" Role="D_Ad" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="FirmModel.D_Ad_To_View" Role="D_Ad_To_View" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Ad">
+        <PropertyRef Name="F_Ad_Id" />
+      </Principal>
+      <Dependent Role="D_Ad_To_View">
+        <PropertyRef Name="F_M_To_V_AD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_Ad_To_View_D_Ad_View">
+    <End Type="FirmModel.D_Ad_View" Role="D_Ad_View" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="FirmModel.D_Ad_To_View" Role="D_Ad_To_View" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Ad_View">
+        <PropertyRef Name="F_View_Id" />
+      </Principal>
+      <Dependent Role="D_Ad_To_View">
+        <PropertyRef Name="F_M_To_V_View_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_Admin_Role_Right_D_Admin_Role">
+    <End Type="FirmModel.D_Admin_Role" Role="D_Admin_Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="FirmModel.D_Admin_Role_Right" Role="D_Admin_Role_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Admin_Role">
+        <PropertyRef Name="F_Role_Id" />
+      </Principal>
+      <Dependent Role="D_Admin_Role_Right">
+        <PropertyRef Name="F_Admin_Right_RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="D_Admin_Logs">
+    <Key>
+      <PropertyRef Name="F_A_Log_Admin_Id" />
+      <PropertyRef Name="F_A_Log_Create" />
+    </Key>
+    <Property Name="F_A_Log_Admin_Id" Type="Int32" Nullable="false" />
+    <Property Name="F_A_Log_Create" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="F_A_Log_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_Log_UserAgent" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="D_Admin" Relationship="FirmModel.FK_D_Admin_Logs_D_Admin" FromRole="D_Admin_Logs" ToRole="D_Admin" />
+  </EntityType>
+  <EntityType Name="D_Admin">
+    <Key>
+      <PropertyRef Name="F_Admin_Id" />
+    </Key>
+    <Property Name="F_Admin_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_Admin_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_Admin_Nick" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_Admin_Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="F_Admin_Time_Last" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="F_Admin_Time_Create" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="F_Admin_IsLock" Type="Boolean" Nullable="false" />
+    <Property Name="F_Admin_IsSupper" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="D_Admin_Role" Relationship="FirmModel.D_Admin_To_Role" FromRole="D_Admin" ToRole="D_Admin_Role" />
+    <NavigationProperty Name="D_Admin_Logs" Relationship="FirmModel.FK_D_Admin_Logs_D_Admin" FromRole="D_Admin" ToRole="D_Admin_Logs" />
+    <NavigationProperty Name="D_Admin_Record" Relationship="FirmModel.FK_D_Admin_Record_D_Admin" FromRole="D_Admin" ToRole="D_Admin_Record" />
+  </EntityType>
+  <Association Name="D_Admin_To_Role">
+    <End Type="FirmModel.D_Admin" Role="D_Admin" Multiplicity="*" />
+    <End Type="FirmModel.D_Admin_Role" Role="D_Admin_Role" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_D_Admin_Logs_D_Admin">
+    <End Type="FirmModel.D_Admin" Role="D_Admin" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="FirmModel.D_Admin_Logs" Role="D_Admin_Logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Admin">
+        <PropertyRef Name="F_Admin_Id" />
+      </Principal>
+      <Dependent Role="D_Admin_Logs">
+        <PropertyRef Name="F_A_Log_Admin_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="D_Admin_Login_Errors">
+    <Key>
+      <PropertyRef Name="F_A_E_Id" />
+    </Key>
+    <Property Name="F_A_E_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_A_E_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_E_Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_E_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_E_UserAgent" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_E_Message" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_E_Create" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="D_Admin_Record">
+    <Key>
+      <PropertyRef Name="F_A_Record_Id" />
+    </Key>
+    <Property Name="F_A_Record_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_A_Record_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_Record_OldContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_Record_NewContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_Record_TableName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_A_Record_AdminId" Type="Int32" />
+    <Property Name="F_A_Record_Create" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="D_Admin" Relationship="FirmModel.FK_D_Admin_Record_D_Admin" FromRole="D_Admin_Record" ToRole="D_Admin" />
+  </EntityType>
+  <EntityType Name="D_SEO">
+    <Key>
+      <PropertyRef Name="F_SEO_Id" />
+    </Key>
+    <Property Name="F_SEO_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_SEO_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F_SEO_Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="F_SEO_MetaKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="F_SEO_MetaContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="F_SEO_Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="F_SEO_IsLock" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_D_Admin_Record_D_Admin">
+    <End Type="FirmModel.D_Admin" Role="D_Admin" Multiplicity="0..1" />
+    <End Type="FirmModel.D_Admin_Record" Role="D_Admin_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Admin">
+        <PropertyRef Name="F_Admin_Id" />
+      </Principal>
+      <Dependent Role="D_Admin_Record">
+        <PropertyRef Name="F_A_Record_AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

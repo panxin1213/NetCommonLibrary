@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FirmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="D_Ad">
+    <Key>
+      <PropertyRef Name="F_Ad_Id" />
+    </Key>
+    <Property Name="F_Ad_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_Ad_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_Ad_Type" Type="int" Nullable="false" />
+    <Property Name="F_Ad_Link" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="F_Ad_Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="F_Ad_Desc" Type="nvarchar" MaxLength="500" />
+    <Property Name="F_Ad_Html" Type="nvarchar(max)" />
+    <Property Name="F_Ad_IsLock" Type="bit" Nullable="false" />
+    <Property Name="F_Ad_Create" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="D_Ad_To_View">
+    <Key>
+      <PropertyRef Name="F_M_To_V_View_ID" />
+      <PropertyRef Name="F_M_To_V_AD_ID" />
+    </Key>
+    <Property Name="F_M_To_V_View_ID" Type="int" Nullable="false" />
+    <Property Name="F_M_To_V_AD_ID" Type="int" Nullable="false" />
+    <Property Name="F_M_To_V_EndTime" Type="datetime" Nullable="false" />
+    <Property Name="F_M_To_V_StartTime" Type="datetime" Nullable="false" />
+    <Property Name="F_M_To_V_Order" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="D_Ad_View">
+    <Key>
+      <PropertyRef Name="F_View_Id" />
+    </Key>
+    <Property Name="F_View_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_View_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_View_Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="F_View_Create" Type="datetime" />
+  </EntityType>
+  <EntityType Name="D_Admin">
+    <Key>
+      <PropertyRef Name="F_Admin_Id" />
+    </Key>
+    <Property Name="F_Admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_Admin_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_Admin_Nick" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_Admin_Password" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="F_Admin_Time_Last" Type="datetime" Nullable="false" />
+    <Property Name="F_Admin_Time_Create" Type="datetime" Nullable="false" />
+    <Property Name="F_Admin_IsLock" Type="bit" Nullable="false" />
+    <Property Name="F_Admin_IsSupper" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="D_Admin_Login_Errors">
+    <Key>
+      <PropertyRef Name="F_A_E_Id" />
+    </Key>
+    <Property Name="F_A_E_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_A_E_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_A_E_Pass" Type="nvarchar" MaxLength="50" />
+    <Property Name="F_A_E_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_A_E_UserAgent" Type="nvarchar" MaxLength="150" />
+    <Property Name="F_A_E_Message" Type="nvarchar" MaxLength="150" />
+    <Property Name="F_A_E_Create" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="D_Admin_Logs">
+    <Key>
+      <PropertyRef Name="F_A_Log_Admin_Id" />
+      <PropertyRef Name="F_A_Log_Create" />
+    </Key>
+    <Property Name="F_A_Log_Admin_Id" Type="int" Nullable="false" />
+    <Property Name="F_A_Log_Create" Type="datetime" Nullable="false" />
+    <Property Name="F_A_Log_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_A_Log_UserAgent" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="D_Admin_Record">
+    <Key>
+      <PropertyRef Name="F_A_Record_Id" />
+    </Key>
+    <Property Name="F_A_Record_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_A_Record_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_A_Record_OldContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="F_A_Record_NewContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="F_A_Record_TableName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_A_Record_AdminId" Type="int" />
+    <Property Name="F_A_Record_Create" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="D_Admin_Role">
+    <Key>
+      <PropertyRef Name="F_Role_Id" />
+    </Key>
+    <Property Name="F_Role_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_Role_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_Role_Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="F_Role_Time_Create" Type="datetime" Nullable="false" />
+    <Property Name="F_Role_IsLock" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“Firm_Common.dbo.D_Admin_Role_Right”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="D_Admin_Role_Right">
+    <Key>
+      <PropertyRef Name="F_Admin_Right_RoleId" />
+      <PropertyRef Name="NameSpace" />
+      <PropertyRef Name="ClassName" />
+    </Key>
+    <Property Name="F_Admin_Right_RoleId" Type="int" Nullable="false" />
+    <Property Name="NameSpace" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="D_Admin_To_Role">
+    <Key>
+      <PropertyRef Name="F_Admin_Role_AdminId" />
+      <PropertyRef Name="F_Admin_Role_RoleId" />
+    </Key>
+    <Property Name="F_Admin_Role_AdminId" Type="int" Nullable="false" />
+    <Property Name="F_Admin_Role_RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="D_FriendLink">
+    <Key>
+      <PropertyRef Name="F_FriendLink_Id" />
+    </Key>
+    <Property Name="F_FriendLink_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_FriendLink_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_FriendLink_Url" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="F_FriendLink_Type" Type="tinyint" Nullable="false" />
+    <Property Name="F_FriendLink_Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="F_FriendLink_IsLock" Type="bit" Nullable="false" />
+    <Property Name="F_FriendLink_Create" Type="datetime" />
+    <Property Name="F_FriendLink_Update" Type="datetime" />
+    <Property Name="F_FriendLink_Order" Type="int" Nullable="false" />
+    <Property Name="F_FriendLink_ByAddress" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="D_Image_Record">
+    <Key>
+      <PropertyRef Name="F_Image_Record_Id" />
+    </Key>
+    <Property Name="F_Image_Record_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_Image_Record_FilePath" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="F_Image_Record_Num" Type="int" Nullable="false" />
+    <Property Name="F_Image_Record_InRecord" Type="nvarchar(max)" />
+    <Property Name="F_Image_Record_Md5" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="D_SEO">
+    <Key>
+      <PropertyRef Name="F_SEO_Id" />
+    </Key>
+    <Property Name="F_SEO_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_SEO_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_SEO_Title" Type="nvarchar" MaxLength="150" />
+    <Property Name="F_SEO_MetaKey" Type="nvarchar" MaxLength="500" />
+    <Property Name="F_SEO_MetaContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="F_SEO_Link" Type="nvarchar" MaxLength="500" />
+    <Property Name="F_SEO_IsLock" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_D_Ad_To_View_D_Ad">
+    <End Role="D_Ad" Type="Self.D_Ad" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="D_Ad_To_View" Type="Self.D_Ad_To_View" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Ad">
+        <PropertyRef Name="F_Ad_Id" />
+      </Principal>
+      <Dependent Role="D_Ad_To_View">
+        <PropertyRef Name="F_M_To_V_AD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_Ad_To_View_D_Ad_View">
+    <End Role="D_Ad_View" Type="Self.D_Ad_View" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="D_Ad_To_View" Type="Self.D_Ad_To_View" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Ad_View">
+        <PropertyRef Name="F_View_Id" />
+      </Principal>
+      <Dependent Role="D_Ad_To_View">
+        <PropertyRef Name="F_M_To_V_View_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_Admin_Record_D_Admin">
+    <End Role="D_Admin" Type="Self.D_Admin" Multiplicity="0..1" />
+    <End Role="D_Admin_Record" Type="Self.D_Admin_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Admin">
+        <PropertyRef Name="F_Admin_Id" />
+      </Principal>
+      <Dependent Role="D_Admin_Record">
+        <PropertyRef Name="F_A_Record_AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_Admin_Role_Right_D_Admin_Role">
+    <End Role="D_Admin_Role" Type="Self.D_Admin_Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="D_Admin_Role_Right" Type="Self.D_Admin_Role_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Admin_Role">
+        <PropertyRef Name="F_Role_Id" />
+      </Principal>
+      <Dependent Role="D_Admin_Role_Right">
+        <PropertyRef Name="F_Admin_Right_RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_Admin_To_Role_D_Admin">
+    <End Role="D_Admin" Type="Self.D_Admin" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="D_Admin_To_Role" Type="Self.D_Admin_To_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Admin">
+        <PropertyRef Name="F_Admin_Id" />
+      </Principal>
+      <Dependent Role="D_Admin_To_Role">
+        <PropertyRef Name="F_Admin_Role_AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_Admin_To_Role_D_Admin_Role">
+    <End Role="D_Admin_Role" Type="Self.D_Admin_Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="D_Admin_To_Role" Type="Self.D_Admin_To_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_Admin_Role">
+        <PropertyRef Name="F_Role_Id" />
+      </Principal>
+      <Dependent Role="D_Admin_To_Role">
+        <PropertyRef Name="F_Admin_Role_RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FirmModelStoreContainer">
+    <EntitySet Name="D_Ad" EntityType="Self.D_Ad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Ad_To_View" EntityType="Self.D_Ad_To_View" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Ad_View" EntityType="Self.D_Ad_View" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Admin" EntityType="Self.D_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Admin_Login_Errors" EntityType="Self.D_Admin_Login_Errors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Admin_Logs" EntityType="Self.D_Admin_Logs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Admin_Record" EntityType="Self.D_Admin_Record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Admin_Role" EntityType="Self.D_Admin_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Admin_To_Role" EntityType="Self.D_Admin_To_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_FriendLink" EntityType="Self.D_FriendLink" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Image_Record" EntityType="Self.D_Image_Record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_SEO" EntityType="Self.D_SEO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_Admin_Role_Right" EntityType="Self.D_Admin_Role_Right" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[D_Admin_Role_Right].[F_Admin_Right_RoleId] AS [F_Admin_Right_RoleId], 
+[D_Admin_Role_Right].[NameSpace] AS [NameSpace], 
+[D_Admin_Role_Right].[ClassName] AS [ClassName]
+FROM [dbo].[D_Admin_Role_Right] AS [D_Admin_Role_Right]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_D_Ad_To_View_D_Ad" Association="Self.FK_D_Ad_To_View_D_Ad">
+      <End Role="D_Ad" EntitySet="D_Ad" />
+      <End Role="D_Ad_To_View" EntitySet="D_Ad_To_View" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_Ad_To_View_D_Ad_View" Association="Self.FK_D_Ad_To_View_D_Ad_View">
+      <End Role="D_Ad_View" EntitySet="D_Ad_View" />
+      <End Role="D_Ad_To_View" EntitySet="D_Ad_To_View" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_Admin_Record_D_Admin" Association="Self.FK_D_Admin_Record_D_Admin">
+      <End Role="D_Admin" EntitySet="D_Admin" />
+      <End Role="D_Admin_Record" EntitySet="D_Admin_Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_Admin_Role_Right_D_Admin_Role" Association="Self.FK_D_Admin_Role_Right_D_Admin_Role">
+      <End Role="D_Admin_Role" EntitySet="D_Admin_Role" />
+      <End Role="D_Admin_Role_Right" EntitySet="D_Admin_Role_Right" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_Admin_To_Role_D_Admin" Association="Self.FK_D_Admin_To_Role_D_Admin">
+      <End Role="D_Admin" EntitySet="D_Admin" />
+      <End Role="D_Admin_To_Role" EntitySet="D_Admin_To_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_Admin_To_Role_D_Admin_Role" Association="Self.FK_D_Admin_To_Role_D_Admin_Role">
+      <End Role="D_Admin_Role" EntitySet="D_Admin_Role" />
+      <End Role="D_Admin_To_Role" EntitySet="D_Admin_To_Role" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

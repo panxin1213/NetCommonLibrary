@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FirmModelStoreContainer" CdmEntityContainer="FirmEntities">
+    <EntitySetMapping Name="D_Ad">
+      <EntityTypeMapping TypeName="FirmModel.D_Ad">
+        <MappingFragment StoreEntitySet="D_Ad">
+          <ScalarProperty Name="F_Ad_Create" ColumnName="F_Ad_Create" />
+          <ScalarProperty Name="F_Ad_IsLock" ColumnName="F_Ad_IsLock" />
+          <ScalarProperty Name="F_Ad_Html" ColumnName="F_Ad_Html" />
+          <ScalarProperty Name="F_Ad_Desc" ColumnName="F_Ad_Desc" />
+          <ScalarProperty Name="F_Ad_Image" ColumnName="F_Ad_Image" />
+          <ScalarProperty Name="F_Ad_Link" ColumnName="F_Ad_Link" />
+          <ScalarProperty Name="F_Ad_Type" ColumnName="F_Ad_Type" />
+          <ScalarProperty Name="F_Ad_Title" ColumnName="F_Ad_Title" />
+          <ScalarProperty Name="F_Ad_Id" ColumnName="F_Ad_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_Ad_To_View">
+      <EntityTypeMapping TypeName="FirmModel.D_Ad_To_View">
+        <MappingFragment StoreEntitySet="D_Ad_To_View">
+          <ScalarProperty Name="F_M_To_V_Order" ColumnName="F_M_To_V_Order" />
+          <ScalarProperty Name="F_M_To_V_StartTime" ColumnName="F_M_To_V_StartTime" />
+          <ScalarProperty Name="F_M_To_V_EndTime" ColumnName="F_M_To_V_EndTime" />
+          <ScalarProperty Name="F_M_To_V_AD_ID" ColumnName="F_M_To_V_AD_ID" />
+          <ScalarProperty Name="F_M_To_V_View_ID" ColumnName="F_M_To_V_View_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_Ad_View">
+      <EntityTypeMapping TypeName="FirmModel.D_Ad_View">
+        <MappingFragment StoreEntitySet="D_Ad_View">
+          <ScalarProperty Name="F_View_Create" ColumnName="F_View_Create" />
+          <ScalarProperty Name="F_View_Address" ColumnName="F_View_Address" />
+          <ScalarProperty Name="F_View_Title" ColumnName="F_View_Title" />
+          <ScalarProperty Name="F_View_Id" ColumnName="F_View_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_Admin_Role">
+      <EntityTypeMapping TypeName="FirmModel.D_Admin_Role">
+        <MappingFragment StoreEntitySet="D_Admin_Role">
+          <ScalarProperty Name="F_Role_IsLock" ColumnName="F_Role_IsLock" />
+          <ScalarProperty Name="F_Role_Time_Create" ColumnName="F_Role_Time_Create" />
+          <ScalarProperty Name="F_Role_Description" ColumnName="F_Role_Description" />
+          <ScalarProperty Name="F_Role_Name" ColumnName="F_Role_Name" />
+          <ScalarProperty Name="F_Role_Id" ColumnName="F_Role_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_FriendLink">
+      <EntityTypeMapping TypeName="FirmModel.D_FriendLink">
+        <MappingFragment StoreEntitySet="D_FriendLink">
+          <ScalarProperty Name="F_FriendLink_ByAddress" ColumnName="F_FriendLink_ByAddress" />
+          <ScalarProperty Name="F_FriendLink_Order" ColumnName="F_FriendLink_Order" />
+          <ScalarProperty Name="F_FriendLink_Update" ColumnName="F_FriendLink_Update" />
+          <ScalarProperty Name="F_FriendLink_Create" ColumnName="F_FriendLink_Create" />
+          <ScalarProperty Name="F_FriendLink_IsLock" ColumnName="F_FriendLink_IsLock" />
+          <ScalarProperty Name="F_FriendLink_Image" ColumnName="F_FriendLink_Image" />
+          <ScalarProperty Name="F_FriendLink_Type" ColumnName="F_FriendLink_Type" />
+          <ScalarProperty Name="F_FriendLink_Url" ColumnName="F_FriendLink_Url" />
+          <ScalarProperty Name="F_FriendLink_Title" ColumnName="F_FriendLink_Title" />
+          <ScalarProperty Name="F_FriendLink_Id" ColumnName="F_FriendLink_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_Image_Record">
+      <EntityTypeMapping TypeName="FirmModel.D_Image_Record">
+        <MappingFragment StoreEntitySet="D_Image_Record">
+          <ScalarProperty Name="F_Image_Record_Md5" ColumnName="F_Image_Record_Md5" />
+          <ScalarProperty Name="F_Image_Record_InRecord" ColumnName="F_Image_Record_InRecord" />
+          <ScalarProperty Name="F_Image_Record_Num" ColumnName="F_Image_Record_Num" />
+          <ScalarProperty Name="F_Image_Record_FilePath" ColumnName="F_Image_Record_FilePath" />
+          <ScalarProperty Name="F_Image_Record_Id" ColumnName="F_Image_Record_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_Admin_Role_Right">
+      <EntityTypeMapping TypeName="FirmModel.D_Admin_Role_Right">
+        <MappingFragment StoreEntitySet="D_Admin_Role_Right">
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="NameSpace" ColumnName="NameSpace" />
+          <ScalarProperty Name="F_Admin_Right_RoleId" ColumnName="F_Admin_Right_RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_Admin_Logs">
+      <EntityTypeMapping TypeName="FirmModel.D_Admin_Logs">
+        <MappingFragment StoreEntitySet="D_Admin_Logs">
+          <ScalarProperty Name="F_A_Log_UserAgent" ColumnName="F_A_Log_UserAgent" />
+          <ScalarProperty Name="F_A_Log_IP" ColumnName="F_A_Log_IP" />
+          <ScalarProperty Name="F_A_Log_Create" ColumnName="F_A_Log_Create" />
+          <ScalarProperty Name="F_A_Log_Admin_Id" ColumnName="F_A_Log_Admin_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_Admin">
+      <EntityTypeMapping TypeName="FirmModel.D_Admin">
+        <MappingFragment StoreEntitySet="D_Admin">
+          <ScalarProperty Name="F_Admin_IsSupper" ColumnName="F_Admin_IsSupper" />
+          <ScalarProperty Name="F_Admin_IsLock" ColumnName="F_Admin_IsLock" />
+          <ScalarProperty Name="F_Admin_Time_Create" ColumnName="F_Admin_Time_Create" />
+          <ScalarProperty Name="F_Admin_Time_Last" ColumnName="F_Admin_Time_Last" />
+          <ScalarProperty Name="F_Admin_Password" ColumnName="F_Admin_Password" />
+          <ScalarProperty Name="F_Admin_Nick" ColumnName="F_Admin_Nick" />
+          <ScalarProperty Name="F_Admin_Name" ColumnName="F_Admin_Name" />
+          <ScalarProperty Name="F_Admin_Id" ColumnName="F_Admin_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="D_Admin_To_Role" TypeName="FirmModel.D_Admin_To_Role" StoreEntitySet="D_Admin_To_Role">
+      <EndProperty Name="D_Admin_Role">
+        <ScalarProperty Name="F_Role_Id" ColumnName="F_Admin_Role_RoleId" />
+      </EndProperty>
+      <EndProperty Name="D_Admin">
+        <ScalarProperty Name="F_Admin_Id" ColumnName="F_Admin_Role_AdminId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="D_Admin_Login_Errors">
+      <EntityTypeMapping TypeName="FirmModel.D_Admin_Login_Errors">
+        <MappingFragment StoreEntitySet="D_Admin_Login_Errors">
+          <ScalarProperty Name="F_A_E_Create" ColumnName="F_A_E_Create" />
+          <ScalarProperty Name="F_A_E_Message" ColumnName="F_A_E_Message" />
+          <ScalarProperty Name="F_A_E_UserAgent" ColumnName="F_A_E_UserAgent" />
+          <ScalarProperty Name="F_A_E_IP" ColumnName="F_A_E_IP" />
+          <ScalarProperty Name="F_A_E_Pass" ColumnName="F_A_E_Pass" />
+          <ScalarProperty Name="F_A_E_Name" ColumnName="F_A_E_Name" />
+          <ScalarProperty Name="F_A_E_Id" ColumnName="F_A_E_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_Admin_Record">
+      <EntityTypeMapping TypeName="FirmModel.D_Admin_Record">
+        <MappingFragment StoreEntitySet="D_Admin_Record">
+          <ScalarProperty Name="F_A_Record_Create" ColumnName="F_A_Record_Create" />
+          <ScalarProperty Name="F_A_Record_AdminId" ColumnName="F_A_Record_AdminId" />
+          <ScalarProperty Name="F_A_Record_TableName" ColumnName="F_A_Record_TableName" />
+          <ScalarProperty Name="F_A_Record_NewContent" ColumnName="F_A_Record_NewContent" />
+          <ScalarProperty Name="F_A_Record_OldContent" ColumnName="F_A_Record_OldContent" />
+          <ScalarProperty Name="F_A_Record_Type" ColumnName="F_A_Record_Type" />
+          <ScalarProperty Name="F_A_Record_Id" ColumnName="F_A_Record_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_SEO">
+      <EntityTypeMapping TypeName="FirmModel.D_SEO">
+        <MappingFragment StoreEntitySet="D_SEO">
+          <ScalarProperty Name="F_SEO_IsLock" ColumnName="F_SEO_IsLock" />
+          <ScalarProperty Name="F_SEO_Link" ColumnName="F_SEO_Link" />
+          <ScalarProperty Name="F_SEO_MetaContent" ColumnName="F_SEO_MetaContent" />
+          <ScalarProperty Name="F_SEO_MetaKey" ColumnName="F_SEO_MetaKey" />
+          <ScalarProperty Name="F_SEO_Title" ColumnName="F_SEO_Title" />
+          <ScalarProperty Name="F_SEO_Name" ColumnName="F_SEO_Name" />
+          <ScalarProperty Name="F_SEO_Id" ColumnName="F_SEO_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

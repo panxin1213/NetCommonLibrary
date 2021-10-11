@@ -1,0 +1,14 @@
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Common.WebForm.Library.dll
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Common.WebForm.Library.pdb
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Common.Library.dll
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Dapper.Contrib.dll
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Dapper.dll
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\log4net.dll
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Common.Library.pdb
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Dapper.Contrib.pdb
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Dapper.pdb
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\obj\Release\Common.WebForm.Library.csprojResolveAssemblyReference.cache
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\obj\Release\Common.WebForm.Library.dll
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\obj\Release\Common.WebForm.Library.pdb
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Aspose.Words.dll
+E:\WorkSource\Topic\Elysian\Common\Common.WebForm.Library\bin\Release\Ionic.Zip.dll

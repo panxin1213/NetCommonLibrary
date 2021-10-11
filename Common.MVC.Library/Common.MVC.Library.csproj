@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE915871-5858-4D91-9DAB-8B8E8A1E16CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common.MVC.Library</RootNamespace>
+    <AssemblyName>Common.MVC.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\packages\Aspose Total for .NET DLL 2015-02\Aspose Total for .NET DLL 2015-02\net3.5_clientprofile_authenticodesigned\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\年后删除\Elysian\Common\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseConfig.cs" />
+    <Compile Include="Mvc\BMWebViewPage.cs" />
+    <Compile Include="Mvc\DomainRemoteAttribute.cs" />
+    <Compile Include="Mvc\DomainRouting\AbsoluteUrlHelperEx.cs" />
+    <Compile Include="Mvc\DomainRouting\DomainRoute.cs" />
+    <Compile Include="Mvc\DomainRouting\DomainRouteLinkEx.cs" />
+    <Compile Include="Mvc\DomainRouting\DomainRouteUrlEx.cs" />
+    <Compile Include="Mvc\DomainRouting\RouteCollectionEx.cs" />
+    <Compile Include="Mvc\Extensions\ControllerEx.cs" />
+    <Compile Include="Mvc\Extensions\ModelStateDictionaryEx.cs" />
+    <Compile Include="Mvc\Filters\CustomHandleErrorAttribute.cs" />
+    <Compile Include="Mvc\Filters\ExcutingTimeFilter.cs" />
+    <Compile Include="Mvc\Helpers\HtmlHelperScriptEx.cs" />
+    <Compile Include="Mvc\Helpers\UrlHelperEx.cs" />
+    <Compile Include="Mvc\Html\ActionLinkNavEx.cs" />
+    <Compile Include="Mvc\Html\DecimalEx.cs" />
+    <Compile Include="Mvc\Html\DisplayEnumEx.cs" />
+    <Compile Include="Mvc\Html\DistrictEx.cs" />
+    <Compile Include="Mvc\Html\DropDownListEx.cs" />
+    <Compile Include="Mvc\Html\FormBackButtonEx.cs" />
+    <Compile Include="Mvc\Html\HiddenIndexEx.cs" />
+    <Compile Include="Mvc\Html\HtmlHelperAbsoluteUrlEx.cs" />
+    <Compile Include="Mvc\Html\HtmlHelperRawTextEx.cs" />
+    <Compile Include="Mvc\Html\IncludePageEx.cs" />
+    <Compile Include="Mvc\Html\LabelFor.cs" />
+    <Compile Include="Mvc\Html\WebGridEx.cs" />
+    <Compile Include="Mvc\Html\WebGrid`T.cs" />
+    <Compile Include="Mvc\JavascriptContentResult.cs" />
+    <Compile Include="Mvc\ModelBinder\StringTrimModelBinder.cs" />
+    <Compile Include="Mvc\PluginControllerFactory.cs" />
+    <Compile Include="Mvc\PluginRazorViewEngine.cs" />
+    <Compile Include="Mvc\PrecompiledViews\ApplicationPartRegistry.cs" />
+    <Compile Include="Mvc\PrecompiledViews\CompiledVirtualFile.cs" />
+    <Compile Include="Mvc\PrecompiledViews\CompiledVirtualPathProvider.cs" />
+    <Compile Include="Mvc\PrecompiledViews\DictionaryBasedApplicationPartRegistry.cs" />
+    <Compile Include="Mvc\PrecompiledViews\IApplicationPartRegistry.cs" />
+    <Compile Include="Mvc\PrecompiledViews\PreApplicationStartCode.cs" />
+    <Compile Include="Mvc\Razor\SmanViewPage.cs" />
+    <Compile Include="Plugin\IPlugin.cs" />
+    <Compile Include="Plugin\PluginDescriptor.cs" />
+    <Compile Include="Plugin\PluginManager.cs" />
+    <Compile Include="Plugin\PluginWatcher.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\CodeEx.cs" />
+    <Compile Include="System\ComponentModel\DataAnnotations\CompareValueAttribute.cs" />
+    <Compile Include="System\ComponentModel\DataAnnotations\DateTimeRangeAttribute.cs" />
+    <Compile Include="System\ComponentModel\DataAnnotations\EqualToAttribute.cs" />
+    <Compile Include="System\ComponentModel\DataAnnotations\MultiRequiredAttribute.cs" />
+    <Compile Include="System\ComponentModel\DataAnnotations\MustBeTrueAttribute.cs" />
+    <Compile Include="System\ComponentModel\DataAnnotations\NotNullAttribute.cs" />
+    <Compile Include="System\ComponentModel\DataAnnotations\OptionParamAttribute.cs" />
+    <Compile Include="System\ComponentModel\DataAnnotations\StringLengthCharAttribute.cs" />
+    <Compile Include="System\Data\Pager\PagerHtmlExtensions.cs" />
+    <Compile Include="System\Data\SearchModel.cs" />
+    <Compile Include="System\ExpressionHelper.cs" />
+    <Compile Include="System\UrlUtility.cs" />
+    <Compile Include="System\Web\RouteValueDictionaryEx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Mvc\Extensions\vssver2.scc" />
+    <None Include="Mvc\Filters\vssver2.scc" />
+    <None Include="Mvc\ModelBinder\vssver2.scc" />
+    <None Include="Mvc\Razor\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Libray\Common.Library.csproj">
+      <Project>{d3244527-1fea-438c-8528-a1e45d151a7c}</Project>
+      <Name>Common.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dapper\Dapper.Contrib\Dapper.Contrib.csproj">
+      <Project>{c2fc4df5-c8d1-4ea8-8e0c-85a3793eb0bb}</Project>
+      <Name>Dapper.Contrib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dapper\Dapper\Dapper.csproj">
+      <Project>{daf737e1-05b5-4189-a5aa-dac6233b64d7}</Project>
+      <Name>Dapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

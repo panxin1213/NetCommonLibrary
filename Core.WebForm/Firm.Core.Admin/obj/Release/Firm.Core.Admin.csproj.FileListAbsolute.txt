@@ -1,0 +1,17 @@
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Firm.Core.Admin.dll
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Firm.Core.Admin.pdb
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Common.Library.dll
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Common.WebForm.Library.dll
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Dapper.Contrib.dll
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Dapper.dll
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Firm.Model.dll
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\log4net.dll
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Common.Library.pdb
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Common.WebForm.Library.pdb
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Dapper.Contrib.pdb
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Dapper.pdb
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Firm.Model.pdb
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\obj\Release\Firm.Core.Admin.csprojResolveAssemblyReference.cache
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\obj\Release\Firm.Core.Admin.dll
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\obj\Release\Firm.Core.Admin.pdb
+E:\WorkSource\Topic\Elysian\Common\Core.WebForm\Firm.Core.Admin\bin\Release\Aspose.Words.dll

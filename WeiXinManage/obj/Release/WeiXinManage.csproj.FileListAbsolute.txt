@@ -1,0 +1,12 @@
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\bin\Release\WeiXinManage.dll
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\bin\Release\WeiXinManage.pdb
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\bin\Release\Common.Library.dll
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\bin\Release\Dapper.Contrib.dll
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\bin\Release\Dapper.dll
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\bin\Release\log4net.dll
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\bin\Release\Common.Library.pdb
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\bin\Release\Dapper.Contrib.pdb
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\bin\Release\Dapper.pdb
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\obj\Release\WeiXinManage.dll
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\obj\Release\WeiXinManage.pdb
+E:\WorkSource\Topic\Elysian\Common\WeiXinManage\obj\Release\WeiXinManage.csprojResolveAssemblyReference.cache

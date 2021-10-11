@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_AdminModelStoreContainer" CdmEntityContainer="DB_AdminEntities">
+    <EntitySetMapping Name="T_Admin">
+      <EntityTypeMapping TypeName="DB_AdminModel.T_Admin">
+        <MappingFragment StoreEntitySet="T_Admin">
+          <ScalarProperty Name="F_Admin_Id" ColumnName="F_Admin_Id" />
+          <ScalarProperty Name="F_Admin_Name" ColumnName="F_Admin_Name" />
+          <ScalarProperty Name="F_Admin_RealName" ColumnName="F_Admin_RealName" />
+          <ScalarProperty Name="F_Admin_Password" ColumnName="F_Admin_Password" />
+          <ScalarProperty Name="F_Admin_Create" ColumnName="F_Admin_Create" />
+          <ScalarProperty Name="F_Admin_IsLock" ColumnName="F_Admin_IsLock" />
+          <ScalarProperty Name="F_Admin_IsSupper" ColumnName="F_Admin_IsSupper" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Admin_Role">
+      <EntityTypeMapping TypeName="DB_AdminModel.T_Admin_Role">
+        <MappingFragment StoreEntitySet="T_Admin_Role">
+          <ScalarProperty Name="F_Role_Id" ColumnName="F_Role_Id" />
+          <ScalarProperty Name="F_Role_Name" ColumnName="F_Role_Name" />
+          <ScalarProperty Name="F_Role_Description" ColumnName="F_Role_Description" />
+          <ScalarProperty Name="F_Role_Create" ColumnName="F_Role_Create" />
+          <ScalarProperty Name="F_Role_IsLock" ColumnName="F_Role_IsLock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Admin_Role_Right">
+      <EntityTypeMapping TypeName="DB_AdminModel.T_Admin_Role_Right">
+        <MappingFragment StoreEntitySet="T_Admin_Role_Right">
+          <ScalarProperty Name="F_Admin_Right_RoleId" ColumnName="F_Admin_Right_RoleId" />
+          <ScalarProperty Name="F_Admin_Right_Controller" ColumnName="F_Admin_Right_Controller" />
+          <ScalarProperty Name="F_Admin_Right_Action" ColumnName="F_Admin_Right_Action" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Admin_Log">
+      <EntityTypeMapping TypeName="DB_AdminModel.T_Admin_Log">
+        <MappingFragment StoreEntitySet="T_Admin_Log">
+          <ScalarProperty Name="F_A_L_AdminId" ColumnName="F_A_L_AdminId" />
+          <ScalarProperty Name="F_A_L_LoginTime" ColumnName="F_A_L_LoginTime" />
+          <ScalarProperty Name="F_A_L_Ip" ColumnName="F_A_L_Ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="T_Admin_To_Role" TypeName="DB_AdminModel.T_Admin_To_Role" StoreEntitySet="T_Admin_To_Role">
+      <EndProperty Name="T_Admin">
+        <ScalarProperty Name="F_Admin_Id" ColumnName="F_Admin_Role_AdminId" />
+      </EndProperty>
+      <EndProperty Name="T_Admin_Role">
+        <ScalarProperty Name="F_Role_Id" ColumnName="F_Admin_Role_RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="T_AD">
+      <EntityTypeMapping TypeName="DB_AdminModel.T_AD">
+        <MappingFragment StoreEntitySet="T_AD">
+          <ScalarProperty Name="F_Ad_Create" ColumnName="F_Ad_Create" />
+          <ScalarProperty Name="F_Ad_IsLock" ColumnName="F_Ad_IsLock" />
+          <ScalarProperty Name="F_Ad_Html" ColumnName="F_Ad_Html" />
+          <ScalarProperty Name="F_Ad_Des" ColumnName="F_Ad_Des" />
+          <ScalarProperty Name="F_Ad_Image" ColumnName="F_Ad_Image" />
+          <ScalarProperty Name="F_Ad_Link" ColumnName="F_Ad_Link" />
+          <ScalarProperty Name="F_Ad_Type" ColumnName="F_Ad_Type" />
+          <ScalarProperty Name="F_Ad_Title" ColumnName="F_Ad_Title" />
+          <ScalarProperty Name="F_Ad_Id" ColumnName="F_Ad_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_FriendLink">
+      <EntityTypeMapping TypeName="DB_AdminModel.T_FriendLink">
+        <MappingFragment StoreEntitySet="T_FriendLink">
+          <ScalarProperty Name="F_FriendLink_Content" ColumnName="F_FriendLink_Content" />
+          <ScalarProperty Name="F_FriendLink_ByAddress" ColumnName="F_FriendLink_ByAddress" />
+          <ScalarProperty Name="F_FriendLink_Order" ColumnName="F_FriendLink_Order" />
+          <ScalarProperty Name="F_FriendLink_Update" ColumnName="F_FriendLink_Update" />
+          <ScalarProperty Name="F_FriendLink_Create" ColumnName="F_FriendLink_Create" />
+          <ScalarProperty Name="F_FriendLink_IsLock" ColumnName="F_FriendLink_IsLock" />
+          <ScalarProperty Name="F_FriendLink_Image" ColumnName="F_FriendLink_Image" />
+          <ScalarProperty Name="F_FriendLink_Type" ColumnName="F_FriendLink_Type" />
+          <ScalarProperty Name="F_FriendLink_Url" ColumnName="F_FriendLink_Url" />
+          <ScalarProperty Name="F_FriendLink_Title" ColumnName="F_FriendLink_Title" />
+          <ScalarProperty Name="F_FriendLink_Id" ColumnName="F_FriendLink_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Image_Record">
+      <EntityTypeMapping TypeName="DB_AdminModel.T_Image_Record">
+        <MappingFragment StoreEntitySet="T_Image_Record">
+          <ScalarProperty Name="F_Image_Record_Md5" ColumnName="F_Image_Record_Md5" />
+          <ScalarProperty Name="F_Image_Record_InRecord" ColumnName="F_Image_Record_InRecord" />
+          <ScalarProperty Name="F_Image_Record_Num" ColumnName="F_Image_Record_Num" />
+          <ScalarProperty Name="F_Image_Record_FilePath" ColumnName="F_Image_Record_FilePath" />
+          <ScalarProperty Name="F_Image_Record_Id" ColumnName="F_Image_Record_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Robot">
+      <EntityTypeMapping TypeName="DB_AdminModel.T_Robot">
+        <MappingFragment StoreEntitySet="T_Robot">
+          <ScalarProperty Name="F_Robot_MobileLink" ColumnName="F_Robot_MobileLink" />
+          <ScalarProperty Name="F_Robot_IsLock" ColumnName="F_Robot_IsLock" />
+          <ScalarProperty Name="F_Robot_Update" ColumnName="F_Robot_Update" />
+          <ScalarProperty Name="F_Robot_Create" ColumnName="F_Robot_Create" />
+          <ScalarProperty Name="F_Robot_Link" ColumnName="F_Robot_Link" />
+          <ScalarProperty Name="F_Robot_Type" ColumnName="F_Robot_Type" />
+          <ScalarProperty Name="F_Robot_Name" ColumnName="F_Robot_Name" />
+          <ScalarProperty Name="F_Robot_Id" ColumnName="F_Robot_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SEO">
+      <EntityTypeMapping TypeName="DB_AdminModel.T_SEO">
+        <MappingFragment StoreEntitySet="T_SEO">
+          <ScalarProperty Name="F_Seo_Link" ColumnName="F_Seo_Link" />
+          <ScalarProperty Name="F_Seo_Area" ColumnName="F_Seo_Area" />
+          <ScalarProperty Name="F_Seo_Search_MetaContent" ColumnName="F_Seo_Search_MetaContent" />
+          <ScalarProperty Name="F_Seo_Search_MetaKey" ColumnName="F_Seo_Search_MetaKey" />
+          <ScalarProperty Name="F_Seo_Search_Title" ColumnName="F_Seo_Search_Title" />
+          <ScalarProperty Name="F_Seo_Type" ColumnName="F_Seo_Type" />
+          <ScalarProperty Name="F_Seo_Controller" ColumnName="F_Seo_Controller" />
+          <ScalarProperty Name="F_Seo_Action" ColumnName="F_Seo_Action" />
+          <ScalarProperty Name="F_Seo_Title" ColumnName="F_Seo_Title" />
+          <ScalarProperty Name="F_Seo_IsLock" ColumnName="F_Seo_IsLock" />
+          <ScalarProperty Name="F_Seo_Update" ColumnName="F_Seo_Update" />
+          <ScalarProperty Name="F_Seo_Create" ColumnName="F_Seo_Create" />
+          <ScalarProperty Name="F_Seo_MetaContent" ColumnName="F_Seo_MetaContent" />
+          <ScalarProperty Name="F_Seo_MetaKey" ColumnName="F_Seo_MetaKey" />
+          <ScalarProperty Name="F_Seo_Name" ColumnName="F_Seo_Name" />
+          <ScalarProperty Name="F_Seo_Id" ColumnName="F_Seo_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

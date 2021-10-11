@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CCE400E7-1126-4EBB-9A7A-2CBAE8835B58}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WeiXin.Core</RootNamespace>
+    <AssemblyName>WeiXin.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\AttentionAttribute.cs" />
+    <Compile Include="Model\IdentityUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeiXinConfig.cs" />
+    <Compile Include="WeiXin_Service.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Libray\Common.Library.csproj">
+      <Project>{d3244527-1fea-438c-8528-a1e45d151a7c}</Project>
+      <Name>Common.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.WebForm.Library\Common.WebForm.Library.csproj">
+      <Project>{40606a47-5152-4247-83bb-fb04570fecef}</Project>
+      <Name>Common.WebForm.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dapper\Dapper.Contrib\Dapper.Contrib.csproj">
+      <Project>{c2fc4df5-c8d1-4ea8-8e0c-85a3793eb0bb}</Project>
+      <Name>Dapper.Contrib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dapper\Dapper\Dapper.csproj">
+      <Project>{daf737e1-05b5-4189-a5aa-dac6233b64d7}</Project>
+      <Name>Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WeiXinManage\WeiXinManage.csproj">
+      <Project>{1AA3BC11-18CC-4344-9AFF-7201AC63FF19}</Project>
+      <Name>WeiXinManage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

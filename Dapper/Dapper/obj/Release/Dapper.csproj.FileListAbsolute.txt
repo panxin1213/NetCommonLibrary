@@ -1,0 +1,10 @@
+E:\Elysian\ChinaBM\Dapper\Dapper\bin\Release\Dapper.dll
+E:\Elysian\ChinaBM\Dapper\Dapper\bin\Release\Dapper.pdb
+E:\Elysian\ChinaBM\Dapper\Dapper\obj\Release\ResolveAssemblyReference.cache
+E:\Elysian\ChinaBM\Dapper\Dapper\obj\Release\Dapper.dll
+E:\Elysian\ChinaBM\Dapper\Dapper\obj\Release\Dapper.pdb
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper\bin\Release\Dapper.dll
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper\bin\Release\Dapper.pdb
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper\obj\Release\Dapper.dll
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper\obj\Release\Dapper.pdb
+E:\WorkSource\Topic\Elysian\Common\Dapper\Dapper\obj\Release\Dapper.csprojResolveAssemblyReference.cache

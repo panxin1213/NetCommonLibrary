@@ -1,0 +1,26 @@
+This file describes what folder contains the assemblies you need to use with a particular version of the .NET Framework.
+
+
+
+Folder						Description
+---------------------------------------------------------------------------------------------------------------------------
+
+net2.0						Contains assemblies to use with .NET Framework 2.0, 3.0, 3.5, 4.0, 4.5, 4.5.1 and Mono.
+						This is the assemblies that you should normally use.
+						Note that this assembly cannot be used when targeting the .NET Framework 3.5 
+						or 4.0 Client Profile as it depends on System.Web. In such an envionment use 
+						the library under net3.5_ClientProfile instead.
+
+
+net2.0_AuthenticodeSigned			Same as above, but the assemblies are digitally signed with Authenticode. 
+						Signed assemblies may load slower than without Authenticode.
+
+
+net3.5_ClientProfile				Contains assemblies to use with .NET Framework 3.5 or 4.0 Client Profile.
+						Note that this assembly excludes the Save overload accepting an HttpResponse
+						object. This is by design as the client profile excludes System.Web assembly.
+
+
+
+net3.5_ClientProfile_AuthenticodeSigned		Same as above, but the assemblies are digitally signed with Authenticode. 
+						Signed assemblies may load slower than without Authenticode.
